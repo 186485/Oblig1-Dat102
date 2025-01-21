@@ -15,7 +15,7 @@ public class Tekstgrensesnitt {
         int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Oppgi filmnr:"));
         String produsent = JOptionPane.showInputDialog("Oppgi produsenten av filmen:");
         String tittel = JOptionPane.showInputDialog("Oppgi tittelen på filmen:");
-        int lansering = Integer.parseInt(JOptionPane.showInputDialog("Oppgi årstall:"));
+        int lanseringsår = Integer.parseInt(JOptionPane.showInputDialog("Oppgi årstall:"));
 
         String[] sjangre = {"ACTION", "DRAMA", "COMEDY", "HORROR", "THRILLER"};
         String valgtSjanger = (String) JOptionPane.showInputDialog(
@@ -30,7 +30,7 @@ public class Tekstgrensesnitt {
         Sjanger sjanger = Sjanger.valueOf(valgtSjanger.toUpperCase());
         
         String filmselskap = JOptionPane.showInputDialog("Filmselskap til filmen:");
-        Film film = new Film(filmnr, produsent, tittel, lansering, sjanger, filmselskap);
+        Film film = new Film(filmnr, produsent, tittel, lanseringsår, sjanger, filmselskap);
         JOptionPane.showMessageDialog(null,"Filmen registrert i arkivet");
         return film;
         
@@ -46,7 +46,7 @@ public class Tekstgrensesnitt {
             System.out.println("Filmnummer: " + film.getFilmnr());
             System.out.println("Produsent: " + film.getProdusent());
             System.out.println("Tittel: " + film.getTittel());
-            System.out.println("Lansering: " + film.getLansering());
+            System.out.println("Lanseringsår: " + film.getLansering());
             System.out.println("Sjanger: " + film.getSjanger());
             System.out.println("Filmselskap: " + film.getFilmSelskap());
         } else {

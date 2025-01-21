@@ -15,10 +15,10 @@ public class Meny {
     }
 
     public void start() {
-        // Legger til filmer i arkivet
+        // Legger til filmer i arkivet før programmet starter
         leggTilForhaandsdefinerteFilmer();
 
-        // Hva vil brukeren gjøre
+        // Hva vil brukeren gjøre, spørre i dialogboks
         boolean fortsett = true;
         while (fortsett) {
             // Dialogboks
@@ -81,7 +81,7 @@ public class Meny {
         }
     }
 
-    // Legg til noen forhåndsdefinerte filmer
+    // Legg til noen filmer fra start
     private void leggTilForhaandsdefinerteFilmer() {
         Film film1 = new Film(1, "Niki Marvin", "Frihetens Regn", 1994, Sjanger.THRILLER, "Castle rock Entertainment");
         Film film2 = new Film(2, "Paramount", "The Godfather", 1972, Sjanger.DRAMA, "Paramount");
