@@ -1,10 +1,14 @@
 package no.hvl.data102.filmarkiv.klient;
+import no.hvl.data102.filmarkiv.*;
+import no.hvl.data102.filmarkiv.impl.Filmarkiv;
 
 public class FilmarkivMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+			Filmarkiv filmer = new Filmarkiv(100);
+			Meny meny = new Meny(filmer);
+			meny.start();
+			}
+	
+			}
 
-	}
-
-}
