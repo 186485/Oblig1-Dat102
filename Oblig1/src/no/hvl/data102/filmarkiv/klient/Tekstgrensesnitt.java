@@ -4,32 +4,40 @@ import java.util.Scanner;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
+import javax.swing.JOptionPane;
 
 public class Tekstgrensesnitt {
     private Scanner scanner = new Scanner(System.in);
 
-    // Leser inn opplysninger om en film fra tastatur og returnerer et Film-objekt
+    // Leser inn opplysninger om brukeren velger legg til film
     public Film lesFilm() {
-        System.out.print("Filmnummer: ");
-        int filmnr = Integer.parseInt(scanner.nextLine());
+      try { 
+        int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Oppgi filmnr:"));
+        String produsent = JOptionPane.showInputDialog("Oppgi produsenten av filmen:");
+        String tittel = JOptionPane.showInputDialog("Oppgi tittelen på filmen:");
+        int lansering = Integer.parseInt(JOptionPane.showInputDialog("Oppgi årstall:"));
 
-        System.out.print("Produsent: ");
-        String produsent = scanner.nextLine();
-
-        System.out.print("Tittel: ");
-        String tittel = scanner.nextLine();
-
-        System.out.print("Lanseringsår: ");
-        int lansering = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Sjanger (ACTION, COMEDY, DRAMA, etc.): ");
-        String sjangerStr = scanner.nextLine();
-        Sjanger sjanger = Sjanger.valueOf(sjangerStr.toUpperCase());
-
-        System.out.print("Filmselskap: ");
-        String filmselskap = scanner.nextLine();
-
-        return new Film(filmnr, produsent, tittel, lansering, sjanger, filmselskap);
+        String[] sjangre = {"ACTION", "DRAMA", "COMEDY", "HORROR", "THRILLER"};
+        String valgtSjanger = (String) JOptionPane.showInputDialog(
+                null,
+                "Velg sjanger:",
+                "Sjanger",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                sjangre,
+                sjangre[0]
+        );
+        Sjanger sjanger = Sjanger.valueOf(valgtSjanger.toUpperCase());
+        
+        String filmselskap = JOptionPane.showInputDialog("Filmselskap til filmen:");
+        Film film = new Film(filmnr, produsent, tittel, lansering, sjanger, filmselskap);
+        JOptionPane.showMessageDialog(null,"Filmen registrert i arkivet");
+        return film;
+        
+    } catch(Exception e) {
+        JOptionPane.showMessageDialog(null, "Feil i inndata. Prøv igjen.");
+        return null;
+    }
     }
 
     // Skriver ut en film med alle opplysninger på skjerm

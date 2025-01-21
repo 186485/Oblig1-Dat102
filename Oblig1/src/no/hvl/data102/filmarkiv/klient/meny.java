@@ -3,7 +3,7 @@ package no.hvl.data102.filmarkiv.klient;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Meny {
     private Tekstgrensesnitt tekstgr;
@@ -18,51 +18,55 @@ public class Meny {
         // Legger til filmer i arkivet
         leggTilForhaandsdefinerteFilmer();
 
-        //Hva vil brukeren gjøre
+        // Hva vil brukeren gjøre
         boolean fortsett = true;
-        Scanner scanner = new Scanner(System.in);
         while (fortsett) {
-            System.out.println("Velg et alternativ:");
-            System.out.println("1: Legg til film");
-            System.out.println("2: Finn film");
-            System.out.println("3: Slett film");
-            System.out.println("4: Søk etter tittel");
-            System.out.println("5: Søk etter filmprodusent");
-            System.out.println("6: Vis statistikk");
-            System.out.println("0: Avslutt");
-            System.out.print("Ditt valg: ");
-            int valg = scanner.nextInt();
-            scanner.nextLine();  // Hopper til neste linje etter brukeren har tastet inn tall
+            // Dialogboks
+            String valgStr = JOptionPane.showInputDialog(null, 
+                "Velg et alternativ:\n" +
+                "1: Legg til film\n" +
+                "2: Finn film\n" +
+                "3: Slett film\n" +
+                "4: Søk etter film med tittel\n" +
+                "5: Søk etter film med produsent\n" +
+                "6: Vis antall filmer i arkivet\n" +
+                "0: Avslutt\n" +
+                "Ditt valg:");
+
+            if (valgStr == null || valgStr.isEmpty()) {
+                break; // Hvis brukeren trykker på Avbryt
+            }
+
+            int valg = Integer.parseInt(valgStr);
 
             switch (valg) {
                 case 1:
-                    Film nyFilm = tekstgr.lesFilm(); // Leser ny film
+                    // Leser ny film
+                    Film nyFilm = tekstgr.lesFilm();
                     filmarkiv.leggTilFilm(nyFilm);
                     break;
                 case 2:
-                    System.out.print("Oppgi filmnummer for å finne filmen: ");
-                    int filmnr = scanner.nextInt();
+                    String filmnrStr = JOptionPane.showInputDialog("Oppgi filmnummer for å finne filmen:");
+                    int filmnr = Integer.parseInt(filmnrStr);
                     Film film = filmarkiv.finnFilm(filmnr);
                     tekstgr.skrivUtFilm(film);
                     break;
                 case 3:
-                    System.out.print("Oppgi filmnummer for å slette filmen: ");
-                    int slettFilmnr = scanner.nextInt();
+                    String slettFilmnrStr = JOptionPane.showInputDialog("Oppgi filmnummer for å slette filmen:");
+                    int slettFilmnr = Integer.parseInt(slettFilmnrStr);
                     boolean slettet = filmarkiv.slettFilm(slettFilmnr);
                     if (slettet) {
-                        System.out.println("Filmen ble slettet.");
+                        JOptionPane.showMessageDialog(null, "Filmen ble slettet.");
                     } else {
-                        System.out.println("Fant ikke filmen.");
+                        JOptionPane.showMessageDialog(null, "Fant ikke filmen.");
                     }
                     break;
                 case 4:
-                    System.out.print("Skriv delstreng i tittel: ");
-                    String tittelDelstreng = scanner.nextLine();
+                    String tittelDelstreng = JOptionPane.showInputDialog("Skriv delstreng i tittel:");
                     tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, tittelDelstreng);
                     break;
                 case 5:
-                    System.out.print("Skriv delstreng i produsent: ");
-                    String produsentDelstreng = scanner.nextLine();
+                    String produsentDelstreng = JOptionPane.showInputDialog("Skriv delstreng i produsent:");
                     tekstgr.skrivUtFilmProdusent(filmarkiv, produsentDelstreng);
                     break;
                 case 6:
@@ -72,10 +76,9 @@ public class Meny {
                     fortsett = false; // Avslutter programmet
                     break;
                 default:
-                    System.out.println("Ugyldig valg. Prøv igjen.");
+                    JOptionPane.showMessageDialog(null, "Ugyldig valg. Prøv igjen.");
             }
         }
-        scanner.close();
     }
 
     // Legg til noen forhåndsdefinerte filmer
@@ -86,7 +89,7 @@ public class Meny {
         Film film4 = new Film(4, "Prebz og Dennis", "Minecraft survivalgames", 2016, Sjanger.COMEDY, "NOOBWORK");
         Film film5 = new Film(5, "Bjørn Eriksen", "Julekalender", 2019, Sjanger.COMEDY, "Addexio");
         Film film6 = new Film(6, "Gyatte etaten", "Skibbidi skatt", 2024, Sjanger.HORROR, "Jeg betaler faen meg aldri");
-        
+
         filmarkiv.leggTilFilm(film1);
         filmarkiv.leggTilFilm(film2);
         filmarkiv.leggTilFilm(film3);
