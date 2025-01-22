@@ -62,7 +62,7 @@ public class Tekstgrensesnitt {
                 skrivUtFilm(film);
             }
         } else {
-            System.out.println("Ingen filmer funnet med delstreng i tittelen.");
+            System.out.println("Ingen filmer funnet med kodeordet");
         }
     }
 
