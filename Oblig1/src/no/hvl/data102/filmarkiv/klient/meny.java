@@ -87,7 +87,7 @@ public class Meny {
         Film film2 = new Film(2, "Paramount", "The Godfather", 1972, Sjanger.DRAMA, "Paramount");
         Film film3 = new Film(3, "Lars Petter", "Hvordan bli en reser i Java", 2025, Sjanger.COMEDY, "HVL");
         Film film4 = new Film(4, "Prebz og Dennis", "Minecraft survivalgames", 2016, Sjanger.COMEDY, "NOOBWORK");
-        Film film5 = new Film(5, "Bjørn Eriksen", "Julekalender", 2019, Sjanger.COMEDY, "Addexio");
+        Film film5 = new Film(5, "Addexio", "Julekalender", 2019, Sjanger.COMEDY, "Bjørn Eriksen");
         Film film6 = new Film(6, "Gyatte etaten", "Skibbidi skatt", 2024, Sjanger.HORROR, "Jeg betaler faen meg aldri");
 
         filmarkiv.leggTilFilm(film1);

@@ -43,14 +43,14 @@ public class Tekstgrensesnitt {
     // Skriver ut en film med alle opplysninger på skjerm
     public void skrivUtFilm(Film film) {
         if (film != null) {
-            System.out.println("Filmnummer: " + film.getFilmnr());
-            System.out.println("Produsent: " + film.getProdusent());
-            System.out.println("Tittel: " + film.getTittel());
-            System.out.println("Lanseringsår: " + film.getLansering());
-            System.out.println("Sjanger: " + film.getSjanger());
-            System.out.println("Filmselskap: " + film.getFilmSelskap());
+            JOptionPane.showMessageDialog(null,"Filmnummer: " + film.getFilmnr() + 
+            		"\n" +"Produsent: " + film.getProdusent() +
+            		"\n" + "Tittel: " + film.getTittel() +
+            		"\n" + "Lanseringsår: " + film.getLansering() +
+            		"\n" + "Sjanger: " + film.getSjanger() + 
+            		"\n" + "Filmselskap: " + film.getFilmSelskap());
         } else {
-            System.out.println("Filmen finnes ikke.");
+        	JOptionPane.showMessageDialog(null,"Filmen finnes ikke.");
         }
     }
 
