@@ -26,13 +26,28 @@ public class Filmarkiv2 implements FilmarkivADT{
 
 	@Override
 	public void leggTilFilm(Film nyFilm) {
+		if(antall == 0) {
+		this.start = new LinearNode<Film>(nyFilm);
+		//Kode
+		//antall++;
+		}else {
+			//Kode for legge til film om det allerede finnes filmer i noden
+		}
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public boolean slettFilm(int filmnr) {
-		// TODO Auto-generated method stub
+		LinearNode<Film> valgt = start;
+		while(valgt != null) {
+			if(valgt.data.getFilmnr() == filmnr) {
+			 valgt.data = null; //Må huske å koble om man fjerner noe i midten av slett, kommer tilbake
+			 antall--;
+			 return true;
+			}
+			valgt = valgt.neste;
+		}
 		return false;
 	}
 
