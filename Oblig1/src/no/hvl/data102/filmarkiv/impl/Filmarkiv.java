@@ -52,14 +52,14 @@ public class Filmarkiv implements FilmarkivADT {
     public boolean slettFilm(int filmnr) {
         for (int i = 0; i < antall; i++) {
             if (tabell[i].getFilmnr() == filmnr) {
-                tabell[i] = tabell[antall - 1];
-                tabell[antall - 1] = null; 
-                antall--; 
+            	tabell[i] = tabell[antall - 1]; 
+                tabell[antall - 1] = null;      
+                antall--;                      
                 return true;
             }
         }
         return false;
-    }
+    } 
 
     @Override
     public Film[] soekTittel(String delstreng) {
@@ -99,11 +99,17 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public int antall(Sjanger sjanger) {
-    	return this.antall;
-    }
+    	int antallSjanger = 0;
+    	for(int i = 0; i < antall; i++) {
+    		if(tabell[i].getSjanger() == sjanger) {
+    			antallSjanger++;
+    		}
+    	}
+    	return antallSjanger;
+    } 
 
     @Override
     public int antall() {
-        return antall;
+        return this.antall;
     }
 }

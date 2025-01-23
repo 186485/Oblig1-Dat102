@@ -11,7 +11,7 @@ public class Meny {
 
     public Meny(FilmarkivADT filmarkiv) {
         tekstgr = new Tekstgrensesnitt();
-        this.filmarkiv = filmarkiv;
+        this.filmarkiv = filmarkiv; 
     }
 
     public void start() {

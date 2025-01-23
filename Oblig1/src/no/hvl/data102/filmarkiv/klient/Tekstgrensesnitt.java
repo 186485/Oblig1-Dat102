@@ -1,17 +1,15 @@
 package no.hvl.data102.filmarkiv.klient;
 
-import java.util.Scanner;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 import javax.swing.JOptionPane;
 
 public class Tekstgrensesnitt {
-    private Scanner scanner = new Scanner(System.in);
 
     // Leser inn opplysninger om brukeren velger legg til film
     public Film lesFilm() {
-      try { 
+      try {  
         int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Oppgi filmnr:"));
         String produsent = JOptionPane.showInputDialog("Oppgi produsenten av filmen:");
         String tittel = JOptionPane.showInputDialog("Oppgi tittelen på filmen:");
@@ -62,7 +60,7 @@ public class Tekstgrensesnitt {
                 skrivUtFilm(film);
             }
         } else {
-            System.out.println("Ingen filmer funnet med kodeordet");
+            JOptionPane.showInputDialog(null, "Ingen filmer funnet med kodeordet");
         }
     }
 
@@ -74,13 +72,13 @@ public class Tekstgrensesnitt {
                 skrivUtFilm(film);
             }
         } else {
-            System.out.println("Ingen filmer funnet fra produsenten.");
+        	 JOptionPane.showInputDialog(null,"Ingen filmer funnet fra produsenten.");
         }
     }
 
     // Skriver ut oversikt over alle filmer i arkivet(antall)
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
-        System.out.println("Totalt antall filmer: " + arkiv.antall());
+    	 JOptionPane.showMessageDialog(null,"Totalt antall filmer: " + arkiv.antall());
         
         Sjanger[] sjangere = Sjanger.values();
         for (Sjanger sjanger : sjangere) {
