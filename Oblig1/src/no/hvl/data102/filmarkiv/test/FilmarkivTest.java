@@ -12,7 +12,7 @@ class FilmarkivTest {
 
     @Test
     void testLeggTilFilm() {
-        Filmarkiv2 arkiv = new Filmarkiv2();
+        Filmarkiv2 arkiv = new Filmarkiv2(); //Må eventuelt bruke tabell her om man skal teste med tabell versjonen
 
         Film film1 = new Film(1, "Prod1", "Tittel1", 2021, Sjanger.ACTION, "Filmselskap1");
         Film film2 = new Film(2, "Prod2", "Tittel2", 2022, Sjanger.COMEDY, "Filmselskap2");
@@ -27,7 +27,7 @@ class FilmarkivTest {
 
     @Test
     void testSlettFilm() {
-        Filmarkiv2 arkiv = new Filmarkiv2();
+        Filmarkiv2 arkiv = new Filmarkiv2(); //Må eventuelt bruke tabell her om man skal teste med tabell versjonen
 
         Film film1 = new Film(1, "Prod1", "Tittel1", 2021, Sjanger.ACTION, "Film1");
         Film film2 = new Film(2, "Prod2", "Tittel2", 2022, Sjanger.COMEDY, "Film2");
@@ -53,7 +53,7 @@ class FilmarkivTest {
 
     @Test
     void testSoekTittel() {
-        Filmarkiv2 arkiv = new Filmarkiv2();
+        Filmarkiv2 arkiv = new Filmarkiv2(); //Må eventuelt bruke tabell her om man skal teste med tabell versjonen
 
         Film film1 = new Film(1, "Prod1", "Tittel1", 2021, Sjanger.ACTION, "Film1");
         Film film2 = new Film(2, "Prod2", "Tittel2", 2022, Sjanger.COMEDY, "Film2");
