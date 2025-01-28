@@ -83,7 +83,7 @@ public class Meny {
 
     // Legg til noen filmer fra start
     private void leggTilForhaandsdefinerteFilmer() {
-        Film film1 = new Film(1, "Niki Marvin", "Frihetens Regn", 1994, Sjanger.THRILLER, "Castle rock Entertainment");
+        Film film1 = new Film(1, "Test1", "Film1", 1994, Sjanger.THRILLER, "Produsent1");
         Film film2 = new Film(2, "Paramount", "The Godfather", 1972, Sjanger.DRAMA, "Paramount");
         Film film3 = new Film(3, "Lars Petter", "Hvordan bli en reser i Java", 2025, Sjanger.COMEDY, "HVL");
         Film film4 = new Film(4, "Prebz og Dennis", "Minecraft survivalgames", 2016, Sjanger.COMEDY, "NOOBWORK");

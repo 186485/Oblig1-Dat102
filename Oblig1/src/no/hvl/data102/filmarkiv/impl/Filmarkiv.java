@@ -112,4 +112,14 @@ public class Filmarkiv implements FilmarkivADT {
     public int antall() {
         return this.antall;
     }
+    
+  //Får kanskje bruk for denne metoden???
+  //Lager en metode som returner true/false om nr finnes for å ikke lage dobbelt
+    public boolean finnesNr(int NR) { 
+    	for(int i = 0; i < this.antall; i++) { 
+    		if(NR == tabell[i].getFilmnr());
+    		return true;
+    	}
+    	return false;
+    }
 }

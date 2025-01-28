@@ -10,7 +10,7 @@ public class Tekstgrensesnitt {
     // Leser inn opplysninger om brukeren velger legg til film
     public Film lesFilm() {
       try {  
-        int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Oppgi filmnr:"));
+        int filmnr = Integer.parseInt(JOptionPane.showInputDialog("Oppgi filmnr:"));        	
         String produsent = JOptionPane.showInputDialog("Oppgi produsenten av filmen:");
         String tittel = JOptionPane.showInputDialog("Oppgi tittelen på filmen:");
         int lanseringsår = Integer.parseInt(JOptionPane.showInputDialog("Oppgi årstall:"));
@@ -52,7 +52,7 @@ public class Tekstgrensesnitt {
         }
     }
 
-    // Skriver ut alle filmer med et spessielt kodeord i tittelen
+    // Skriver ut alle filmer med et kodeord i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
         Film[] filmer = arkiv.soekTittel(delstreng);
         if (filmer != null && filmer.length > 0) {
@@ -83,7 +83,7 @@ public class Tekstgrensesnitt {
         Sjanger[] sjangere = Sjanger.values();
         for (Sjanger sjanger : sjangere) {
             int antallIGruppe = arkiv.antall(sjanger);
-            System.out.println(sjanger + ": " + antallIGruppe);
+            JOptionPane.showMessageDialog(null, sjanger + ": " + antallIGruppe);
         }
     }
 }
